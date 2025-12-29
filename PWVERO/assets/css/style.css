@@ -1,0 +1,425 @@
+/* =========================================================
+   VARIABILI GLOBALI
+   ========================================================= */
+:root {
+  --green: #1f5f3b;               /* colore brand principale che richiama il "green" della sostenibilità ambientale */
+  --text-light: #fff;             /* testo su sfondi scuri */
+  --text-dark: #0f2f1d;           /* testo su glass/sfondi chiari */
+
+  --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.10);          /* ombra leggera */
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.15);        /* ombra card standard */
+  --shadow-card-hover: 0 16px 35px rgba(0, 0, 0, 0.20);  /* ombra card hover */
+
+  --glass-bg: rgba(255, 255, 255, 0.18);                /* base glassmorphism */
+  --glass-bg-hover: rgba(255, 255, 255, 0.25);          /* glass più evidente in hover */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.35);  /* bordo “vetro” */
+
+  --blur-strong: blur(12px);       /* blur forte */
+}
+
+/* Focus accessibile per tastiera (tab) */
+a:focus-visible{
+  outline: 3px solid var(--text-light);                 /* contorno chiaro ben visibile */
+  outline-offset: 4px;                                  /* separa outline dall’elemento */
+  box-shadow: 0 0 0 4px rgba(31,95,59,0.4);              /* anello extra brand */
+}
+
+
+/* =========================================================
+   MODULO: BASE (reset + layout pagina)
+   ========================================================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font stack UI */
+  background: url('../images/grano.webp') no-repeat center center fixed; /* immagine fissa */
+  background-size: cover;                                       /* copertura full */
+  margin: 0;                                                    /* reset margin */
+  padding: 0;                                                   /* reset padding */
+  display: flex;                                                /* layout base a colonna */
+  flex-direction: column;
+  align-items: center;                                          /* centro orizzontale */
+  justify-content: flex-start;                                  /* contenuto dall’alto */
+  min-height: 100svh;                                           /* viewport “sicuro” mobile */
+}
+
+html {
+  scroll-behavior: smooth;                                      /* scroll morbido su anchor */
+}
+
+
+/* =========================================================
+   MODULO: OVERLAY / BLUR SFONDO
+   ========================================================= */
+.bg-blur {
+  position: fixed;
+  inset: 0;                                                     /* copre tutta la viewport */
+  background: rgba(31, 95, 59, 0.35);                           /* overlay verde */
+  backdrop-filter: blur(4px);                                   /* blur dello sfondo */
+  -webkit-backdrop-filter: blur(4px);                           /* supporto Safari */
+  z-index: -1;                                                  /* dietro ai contenuti */
+}
+
+
+/* =========================================================
+   MODULO: NAVBAR (contenitore, logo, link)
+   ========================================================= */
+.navbar {
+  overflow-x: auto;                                             /* evita tagli su schermi piccoli */
+  box-sizing: border-box;                                       /* padding incluso nella width */
+  width: 100%;
+  background-color: #1f5f3b;                                    /* brand */
+  color: white;
+  display: flex;
+  justify-content: space-between;                               /* logo a sx, link a dx */
+  align-items: center;
+  padding: 0.6rem 2rem;                                         /* spaziatura “aria” */
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;                                              /* navbar sempre visibile */
+  top: 0;
+  left: 0;
+  z-index: 1000;                                                /* sopra al resto */
+}
+
+.navbar-left img {
+  height: 36px;                                                 /* dimensione logo */
+  filter: brightness(0) invert(1);                              /* logo bianco su sfondo scuro */
+}
+
+.navbar-right {
+  display: flex;
+  gap: 2rem;                                                    /* distanza tra link */
+}
+
+.navbar-right a {
+  color: white;
+  text-decoration: none;                                        /* link puliti */
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   MODULO: HERO (titolo + testo + freccia) — TUTTO NEL FLUSSO
+   ========================================================= */
+.hero {
+  margin-top: 10px;                                             /* piccolo offset iniziale */
+  position: relative;
+  overflow: hidden;                                             /* evita sbordi interni */
+  border-radius: 12px;
+
+  min-height: 100vh;                                            /* hero a tutta altezza */
+  padding: 150px 20px;                                          /* padding base */
+
+  font-size: clamp(14px, 1.2vw, 18px);                          /* tipografia responsive */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: clamp(20px, 4vh, 48px);                                  /* spaziatura tra blocchi */
+
+  padding-top: clamp(80px, 12vh, 140px);                        /* “alza” il contenuto */
+}
+
+/* Titolo principale */
+.hero h1 {
+  margin: 0 0 clamp(12px, 3vh, 28px);                           /* margine sotto flessibile */
+  text-align: center;
+  font-size: 3.5rem;                                            /* dimensione headline */
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0);              /* ombra nulla (placeholder) */
+}
+
+/* Testo descrittivo */
+.hero h2 {
+  margin: 0;
+  text-align: center;
+
+  color: #ffffff;
+  font-size: 1.5em;                                             /* relativo al font-size hero */
+  font-weight: 500;
+  line-height: 1.7;                                             /* leggibilità */
+  max-width: 1200px;                                            /* blocco largo ma controllato */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);                   /* contrasto su background */
+}
+
+
+
+@media (min-resolution: 1.5dppx) {
+  .hero h2 { font-size: 1.3rem; }
+}
+
+/* =========================================================
+   MODULO: FRECCIA SCROLL — NEL FLUSSO (NO absolute)
+   ========================================================= */
+.scroll-arrow {
+  margin-top: clamp(32px, 6vh, 72px);                           /* distanza reale dal testo */
+  text-align: center;
+
+  position: static;                                             /* resta nel flow */
+  left: auto;
+  bottom: auto;
+  transform: none;
+  padding-bottom: 0;
+}
+
+.scroll-arrow a {
+  --scale: 1;                                                   /* variabile interna per hover */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(44px, 6vw, 64px);                                /* “bolla” responsive */
+  height: clamp(44px, 6vw, 64px);
+
+  border-radius: 50%;
+  background-color: #1f5f3b;
+  color: #ffffff;
+
+  font-size: clamp(1.8rem, 3vw, 3.2rem);                        /* icona/freccia responsive */
+  font-weight: 900;
+  text-decoration: none;
+
+  animation: pulse 1.8s infinite;                               /* effetto richiamo */
+  opacity: 0.9;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(var(--scale));                               /* scala controllata */
+}
+
+.scroll-arrow a:hover {
+  opacity: 1;
+  --scale: 1.05;                                                /* micro-ingrandimento */
+}
+
+/* Keyframes “pulse”: espande ombra e la dissolve */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(31, 95, 59, 0.6);                   /* inizio: halo visibile */
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(31, 95, 59, 0);                  /* espansione + fade */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 95, 59, 0);                     /* reset */
+  }
+}
+
+
+/* =========================================================
+   MODULO: TITOLI SEZIONI + ANCORE
+   ========================================================= */
+.section-title {
+  margin: 20px 0 16px;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);                  /* leggibilità su sfondo */
+}
+
+#report2023 {
+  scroll-margin-top: 90px;                                      /* compensa navbar fixed */
+}
+
+.download-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.60);
+}
+
+
+/* =========================================================
+   MODULO: LAYOUT (container + griglie)
+   ========================================================= */
+.container {
+  max-width: 1200px;                                            /* larghezza max contenuti */
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;                                          /* layout orizzontale */
+  justify-content: center;                                      /* centratura */
+  align-items: flex-start;                                      /* allinea in alto */
+  gap: 2rem;                                                    /* spazio tra blocchi */
+  flex-wrap: wrap;                                              /* wrap su schermi piccoli */
+}
+
+
+/* =========================================================
+   DOWNLOAD ZIP – STESSO STILE CARD, GRIGLIA COME LE BOLLE
+   ========================================================= */
+
+/* Desktop: 4 colonne */
+.grid.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);                        /* 4 colonne fluide */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;                                          /* centra la griglia */
+  justify-content: center;
+}
+
+/* Tablet: 2 colonne */
+@media (max-width: 1024px) {
+  .grid.kpis {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile: 1 colonna */
+@media (max-width: 600px) {
+  .grid.kpis {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Griglia bolle: colonne a dimensione fissa (200px) */
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);                      /* 4 bolle per riga */
+  gap: 7rem;                                                    /* spazio “arioso” */
+  justify-content: center;
+  justify-items: center;                                        /* centra ogni bolla */
+  margin-bottom: 1rem;
+  max-width: 1200px;
+}
+
+/* Tablet: 2 bolle per riga */
+@media (max-width: 1024px) {
+  .cards-section {
+    grid-template-columns: repeat(2, 200px);
+    gap: 4rem;
+  }
+}
+
+/* Mobile: 1 bolla per riga */
+@media (max-width: 600px) {
+  .cards-section {
+    grid-template-columns: 200px;
+    gap: 3rem;
+  }
+}
+
+
+/* =========================================================
+   MODULO: CARD (standard + varianti + badge)
+   ========================================================= */
+.card {
+  display: block;                                               /* cliccabile come link */
+  padding: 30px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.18);                        /* glass */
+  backdrop-filter: blur(12px);                                  /* blur forte */
+  -webkit-backdrop-filter: blur(12px);                          /* Safari */
+  border: 1px solid rgba(255, 255, 255, 0.35);                  /* bordo vetro */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);                   /* profondità */
+  text-decoration: none;
+  color: #0f2f1d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  margin-bottom: 20px;                                          /* spazio tra card verticali */
+}
+
+.card:hover {
+  transform: translateY(-4px);                                  /* sollevamento */
+  background: rgba(255, 255, 255, 0.25);                        /* glass più luminoso */
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);                    /* ombra più intensa */
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;                                             /* titolo marcato */
+  display: flex;
+  justify-content: space-between;                               /* testo + badge a dx */
+  align-items: center;
+  color: #000000;
+}
+
+/* Variante: “card” senza glass/ombra, centrata e più stretta */
+.card1 {
+  margin-top: 0.5px;                                            /* micro-allineamento */
+  background-color: transparent;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: none;
+  width: 40%;                                                   /* larghezza ridotta */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge tipo file (pill) */
+.filetype {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;                                         /* pill perfetta */
+  background: #1f5f3b;
+  color: white;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MODULO: REPORT CARD (bolle)
+   ========================================================= */
+.report-card {
+  background-color: rgba(31, 95, 59, 0.70);                     /* bolla verde semi-trasparente */
+  padding: 1rem;
+  border-radius: 50%;                                           /* forma circolare */
+  backdrop-filter: blur(15px);                                  /* glass più forte */
+  -webkit-backdrop-filter: blur(15px);
+  width: 200px;                                                 /* dimensione fissa bolla */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;                                      /* centra verticalmente */
+  align-items: center;                                          /* centra orizzontalmente */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;        /* hover fluido */
+}
+
+.report-card:hover {
+  transform: scale(1.1) translateY(-5px);                       /* effetto “pop” */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);                    /* più profondità */
+}
+
+.report-card .icon {
+  font-size: 1.8rem;                                            /* icona sopra */
+  margin-bottom: 0.3rem;
+}
+
+.report-card .number {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  color: white;
+}
+
+.report-card .desc {
+  font-size: 0.8rem;                                            /* descrizione compatta */
+  line-height: 1.2;
+  padding: 0 0.4rem;                                            /* respiro laterale */
+  color: white;
+}
+
+
+/* =========================================================
+   MODULO: FOOTER
+   ========================================================= */
+.site-footer {
+  width: 100%;
+  margin-top: 3rem;                                             /* separazione dai contenuti */
+  padding: 1rem;
+  text-align: center;
+  background: transparent;                                      /* footer “leggero” */
+  color: #000000;
+  font-size: 1rem;
+}

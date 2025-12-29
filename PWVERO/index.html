@@ -1,0 +1,217 @@
+<!DOCTYPE html> 
+<!-- Specifica lo standard HTML5 per il browser -->
+
+<!-- Inizio del documento HTML con lingua italiana -->
+<html lang="it"> 
+
+<head>
+  <!-- Codifica UTF-8 per caratteri speciali -->
+  <meta charset="UTF-8"> 
+
+  <!-- Layout adattabile a dispositivi mobili -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titolo della pagina nella scheda del browser -->
+  <title>Bonifiche Ferraresi - Report di Sostenibilità</title>
+
+  <!-- Icona della scheda del browser -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/bf-spa-logo.svg">
+
+  <!-- Collegamento al file CSS principale -->
+  <link rel="stylesheet" href="assets/css/style.css"> 
+</head>
+
+
+<body>
+  <!-- Div usato per applicare un effetto di sfocatura allo sfondo -->
+  <div class="bg-blur"></div> 
+
+  <!-- Barra di navigazione principale -->
+  <nav class="navbar"> 
+
+    <!-- Contenitore sinistro della navbar con logo -->
+    <div class="navbar-left"> 
+      <img src="assets/images/bf-spa-logo.svg" alt="navbar-logo" class="navbar-logo">
+    </div>
+
+    <!-- Contenitore destro della navbar con collegamenti ad altre pagine non implementate -->
+    <div class="navbar-right"> 
+      <a href="#">Chi siamo</a>
+      <a href="#">Contatti</a> 
+      <a href="#">Report sostenibilità</a> 
+    </div>
+  </nav>
+
+  <!-- Sezione introduttiva con titolo e descrizione -->
+  <div class="hero"> 
+
+    <!-- Titolo principale della pagina -->
+    <h1>SOSTENIBILITÀ</h1>
+    
+    <!-- Testo descrittivo sul modello di sostenibilità del Gruppo BF -->
+    <h2>Il Gruppo BF (Bonifiche Ferraresi S.p.A.) adotta un modello di sviluppo sostenibile, scalabile e replicabile,
+      finalizzato a supportare in modo strutturato l’intera filiera agro-industriale. Tale modello si basa
+      sull’integrazione delle dimensioni economica, ambientale e sociale, con l’obiettivo di creare valore nel lungo
+      periodo per tutti gli stakeholder coinvolti.<br>
+      L’approccio del Gruppo è guidato dai principi del Codice Etico, che orientano le strategie aziendali e i
+      comportamenti organizzativi. La sostenibilità rappresenta un elemento centrale del modello di business di BF,
+      accompagnata da un impegno costante verso la responsabilità sociale d’impresa, la tutela dell’ambiente e la
+      valorizzazione del capitale umano.
+    </h2>
+
+    <!-- Freccia di scorrimento verso la sezione del report 2023 -->
+    <div class="scroll-arrow"> 
+      <a href="#report2023" aria-label="Scorri al report 2023">
+        ↓
+      </a>
+    </div>
+  </div>
+
+  <div class="section" aria-labelledby="report2023">
+    <!-- Titolo della sezione del report 2023 -->
+    <h3 class="section-title" id="report2023">Report Anno 2023</h3> 
+  </div>
+
+  <!-- Contenitore principale per i contenuti della pagina -->
+  <div class="container" id="contenuti"> 
+
+    <!-- Card per il report 2023 -->
+    <div class="card1"> 
+
+      <!-- Contenitore delle bolle con KPI di sostenibilità  -->
+      <div class="cards-section"> 
+
+        <!-- Bolla 1 -->
+        <div class="report-card"> 
+          <div class="icon">🌱</div>
+          <div class="number">74%</div>
+          <div class="desc">dei fornitori rilevanti per qualità e sicurezza alimentare ha adottato il Codice di Condotta
+            del Gruppo BF, rafforzando la tracciabilità e la responsabilità lungo la catena di fornitura </div>
+        </div>
+
+        <!-- Bolla 2 -->
+        <div class="report-card"> 
+          <div class="icon">⚡️</div>
+          <div class="number">100%</div>
+          <div class="desc">delle emissioni Scope 1 e Scope 2 è oggetto di monitoraggio e rendicontazione, in
+            preparazione all’estensione futura al calcolo completo della Carbon Footprint (Scope 3)</div>
+        </div>
+
+        <!-- Bolla 3 -->
+        <div class="report-card"> 
+          <div class="icon">💧</div>
+          <div class="number">>10%</div>
+          <div class="desc">dei terreni agricoli del Gruppo è stato destinato nel 2023 a iniziative per la tutela della
+            biodiversità (colture senza trattamenti, piante mellifere, cover crops)</div>
+        </div>
+
+        <!-- Bolla 4 -->
+        <div class="report-card"> 
+          <div class="icon">🛰</div>
+          <div class="number">≈50% (target)</div>
+          <div class="desc">della superficie agricola coltivata sarà gestita con tecniche di lavorazione a ridotto
+            impatto (minimum e strip tillage), nell’ambito del Piano di Sostenibilità 2023–2027
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione: download report -->
+  <section class="section" aria-labelledby="report">
+    
+    <!-- Titolo della sezione di download dei report -->
+    <h2 class="download-title">Download report di sostenibilità</h2>
+ 
+
+    <!--Link per il download dei PDF dei report di sostenibilità per ogni anno-->
+    <div class="grid kpis" role="list">
+
+      <!-- Link per il download del report 2023 -->
+      <a class="card" role="listitem"
+       href="assets/downloads/dnf2023.zip"
+       download="dnf2023.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2023">
+       <h3>Bilancio di Sostenibilità 2023<span class="filetype">ZIP</span></h3>
+      </a>
+
+      <!-- Link per il download del report 2022 -->
+       <a class="card" role="listitem"
+       href="assets/downloads/dnf2022.zip"
+       download="dnf2022.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2022">
+       <h3>Bilancio di Sostenibilità 2022<span class="filetype">ZIP</span></h3>
+      </a>
+
+      <!-- Link per il download del report 2021 -->
+      <a class="card" role="listitem"
+       href="assets/downloads/dnf2021.zip"
+       download="dnf2021.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2021">
+       <h3>Bilancio di Sostenibilità 2021<span class="filetype">ZIP</span></h3>
+      </a>
+
+      <!-- Link per il download del report 2020 -->
+      <a class="card" role="listitem"
+       href="assets/downloads/dnf2020.zip"
+       download="dnf2020.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2020">
+       <h3>Bilancio di Sostenibilità 2020<span class="filetype">ZIP</span></h3>
+      </a>
+
+      <!-- Link per il download del report 2019 -->
+      <a class="card" role="listitem"
+       href="assets/downloads/dnf2019.zip"
+       download="dnf2019.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2019">
+       <h3>Bilancio di Sostenibilità 2019<span class="filetype">ZIP</span></h3>
+      </a>
+
+      <!-- Link per il download del report 2018 -->
+      <a class="card" role="listitem"
+       href="assets/downloads/dnf2018.zip"
+       download="dnf2018.zip"
+       aria-label="Scarica ZIP Bilancio di Sostenibilità 2018">
+       <h3>Bilancio di Sostenibilità 2018<span class="filetype">ZIP</span></h3>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer della pagina -->
+  <footer class="site-footer">
+  <p>
+  Project work universitario · Vincenzo Vero – Università Telematica Pegaso ·  
+  Loghi e immagini © BF Group – Bonifiche Ferraresi S.p.A.
+  </p>
+</footer>
+
+<script>
+  // Evita che il browser ripristini automaticamente lo scroll
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  function goTopAndCleanHash() {
+    // Forza in alto (ripetuto perché alcuni browser ripristinano lo scroll "dopo")
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    setTimeout(() => window.scrollTo(0, 0), 50);
+
+    // Rimuove l'hash dall'URL se presente
+    if (location.hash) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
+
+  // Quando la pagina viene caricata normalmente
+  window.addEventListener("load", goTopAndCleanHash);
+
+  // Quando la pagina viene ripristinata da cache
+  window.addEventListener("pageshow", goTopAndCleanHash);
+</script>
+
+</body>
+
+</html>
